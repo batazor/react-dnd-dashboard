@@ -5,7 +5,24 @@ import { Controller } from '../index'
 const schema = [
   {
     type: 'Grid',
-    children: [],
+    children: [
+      {
+        type: 'LineChart',
+        initialValues: {},
+      },
+      {
+        type: 'LineChart',
+        initialValues: {},
+      },
+      {
+        type: 'LineChart',
+        initialValues: {},
+      },
+      {
+        type: 'LineChart',
+        initialValues: {},
+      },
+    ],
   },
 ]
 
@@ -19,7 +36,7 @@ storiesOf('DashBoard', module)
         // onCloseDialogs={pathToWidget => this.setState({ nodeId: pathToWidget })}
         // onMoveDnD={this.onMoveDnD}
         // onDeleteWidget={this.onDeleteWidget}
-        // onResizeWidget={this.onResizeWidget}
+        onResizeWidget={event => console.warn('onResizeWidget', event)}
       />
     </div>
   ))

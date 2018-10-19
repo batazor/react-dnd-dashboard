@@ -1,9 +1,12 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Responsive, WidthProvider } from 'react-grid-layout-fix'
+import { withStyles } from '@material-ui/core/styles'
 import Controller from '../Widget/Controller'
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive)
+
+const styles = () => ({})
 
 class ShowcaseLayout extends PureComponent {
   static propTypes = {
@@ -34,6 +37,7 @@ class ShowcaseLayout extends PureComponent {
     this.state = {
       layout: undefined,
     }
+    console.warn('GRID')
 
     this.onLayoutChange = this.onLayoutChange.bind(this)
     this.onDragStop = this.onDragStop.bind(this)
@@ -50,6 +54,7 @@ class ShowcaseLayout extends PureComponent {
     const {
       children, rowHeight, margin,
     } = this.props
+    console.warn('children', children)
 
     return (
       <ResponsiveReactGridLayout
@@ -78,22 +83,25 @@ class ShowcaseLayout extends PureComponent {
         rowHeight={rowHeight}
       >
         {
-          children.map((item, index) => (
-            <div
-              key={/*eslint-disable*/index/* eslint-enable */}
-              data-grid={this.state.layout[index]}
-            >
-              <Controller
-                {...this.props}
-                id={`${this.props.id}.${index}`}
-                data={item}
-              />
-            </div>
-          ))
+          children.map((item, index) => {
+            console.warn('Item', item)
+            return (
+              <div
+                key={/*eslint-disable*/index/* eslint-enable */}
+                data-grid={this.state.layout[index]}
+              >
+                <Controller
+                  {...this.props}
+                  id={`${this.props.id}.${index}`}
+                  data={item}
+                />
+              </div>
+            )
+          })
         }
       </ResponsiveReactGridLayout>
     )
   }
 }
 
-export default ShowcaseLayout
+export default withStyles(styles)(ShowcaseLayout)

@@ -2,12 +2,15 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 // import Widget from 'Containers/Widget'
 import Wrapper from '../Wrapper'
+import Switch from '../Switch'
 import MyDropContainer from './myDropContainer'
 
 class Controller extends PureComponent {
   static getContainer({ id, data, ...props }) {
     return data.map((item, index) => {
       const pathById = `${id === null ? '' : `${id}.`}${index}`
+
+      console.warn('getContainer', id)
 
       return (
         <Wrapper
@@ -28,7 +31,13 @@ class Controller extends PureComponent {
   render() {
     return Array.isArray(this.props.data) ? (
       Controller.getContainer(this.props)
-    ) : <pre>{'<Widget {...this.props} />'}</pre>
+    ) : (
+      <Switch
+        statusDataSource={{}}
+        packets={{}}
+        {...this.props}
+      />
+    )
   }
 }
 

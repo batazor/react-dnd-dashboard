@@ -62,7 +62,7 @@ class Wrapper extends PureComponent {
   onPointerLeaveToolbar() { this.setState({ isFocusTolbar: false }) }
 
   getI18N(name) {
-    return this.props.getI18N(name) || name
+    return this.props.getI18N ? this.props.getI18N(name) : name
   }
 
   render() {
