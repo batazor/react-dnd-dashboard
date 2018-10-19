@@ -1,11 +1,9 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Responsive, WidthProvider } from 'react-grid-layout-fix'
-import Controller from './Widget/Controller'
+import Controller from '../Widget/Controller'
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive)
-
-const styles = () => ({})
 
 class ShowcaseLayout extends PureComponent {
   static propTypes = {
@@ -65,7 +63,8 @@ class ShowcaseLayout extends PureComponent {
           lg: 12, md: 12, sm: 12, xs: 12, xxs: 12,
         }}
         onLayoutChange={this.onLayoutChange}
-        // I like to have it animate on mount. If you don't, delete `useCSSTransforms` (it's default `true`)
+        // I like to have it animate on mount. If you don't,
+        // delete `useCSSTransforms` (it's default `true`)
         // and set `measureBeforeMount={true}`.
         useCSSTransforms
         compactType="vertical"

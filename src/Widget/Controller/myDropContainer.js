@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
-import Grid from 'BaseUI/Grid'
 import { Drop } from 'react-dnd-simple'
+import Grid from '../../Grid'
 
 const styles = theme => ({
   isActiveContainer: {
