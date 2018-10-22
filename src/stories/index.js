@@ -1,19 +1,12 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Controller } from '../index'
+import { Context } from 'react-dnd-simple'
+import { WidgetMenu, Controller } from '../index'
 
-const schema = [
+let schema = [
   {
     type: 'Grid',
     children: [
-      {
-        type: 'LineChart',
-        initialValues: {},
-      },
-      {
-        type: 'LineChart',
-        initialValues: {},
-      },
       {
         type: 'LineChart',
         initialValues: {},
@@ -26,17 +19,37 @@ const schema = [
   },
 ]
 
+function onDnDAction(event) {
+  console.warn('onDnDAction', event)
+  schema = event
+}
+
 storiesOf('DashBoard', module)
   .add('Simple', () => (
-    <div style={{ height: '50vh' }}>
-      <Controller
-        id={null}
-        data={schema}
+    <Context>
+      <div style={{ height: '50vh' }}>
+        <Controller
+          id={null}
+          data={schema}
 
-        // onCloseDialogs={pathToWidget => this.setState({ nodeId: pathToWidget })}
-        // onMoveDnD={this.onMoveDnD}
-        // onDeleteWidget={this.onDeleteWidget}
-        onResizeWidget={event => console.warn('onResizeWidget', event)}
-      />
-    </div>
+          // onCloseDialogs={pathToWidget => this.setState({ nodeId: pathToWidget })}
+          // onMoveDnD={this.onMoveDnD}
+          // onDeleteWidget={this.onDeleteWidget}
+          onResizeWidget={event => console.warn('onResizeWidget', event)}
+        />
+
+        <WidgetMenu
+          isOpenWidgetMenu
+          data={schema}
+          onDnDAction={onDnDAction}
+          onClose={() => {}}
+        />
+        {
+          // getI18N={this.getI18N}
+          // isOpenWidgetMenu={this.state.DASHBOARD_IS_OPEN_WIDGET_MENU}
+          // onClose={() => this.setState({ DASHBOARD_IS_OPEN_WIDGET_MENU: false })}
+          // />
+        }
+      </div>
+    </Context>
   ))

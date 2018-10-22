@@ -18,25 +18,18 @@ class MyDropContainer extends PureComponent {
     const { data, classes, ...props } = this.props
 
     return (
-      <Grid
-        {...props}
-        {...data}
-      />
+      <Drop
+        data={{ id: props.id }}
+        accepts={['widgetDashBoard']}
+        isActiveClassName={classes.isActiveContainer}
+        isDropClassName={classes.isDropClassNameContainer}
+      >
+        <Grid
+          {...props}
+          {...data}
+        />
+      </Drop>
     )
-
-    // return (
-    //   <Drop
-    //     data={{ id: props.id }}
-    //     accepts={['widgetDashBoard']}
-    //     isActiveClassName={classes.isActiveContainer}
-    //     isDropClassName={classes.isDropClassNameContainer}
-    //   >
-    //     <Grid
-    //       {...props}
-    //       {...data}
-    //     />
-    //   </Drop>
-    // )
   }
 }
 
