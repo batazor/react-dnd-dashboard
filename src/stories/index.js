@@ -3,6 +3,11 @@ import { storiesOf } from '@storybook/react'
 // import { StateDecorator, Store } from "@sambego/storybook-state"
 import { withState } from '@dump247/storybook-state'
 import { Context } from 'react-dnd-simple'
+import Toolbar from '@material-ui/core/Toolbar'
+import AppBar from '@material-ui/core/AppBar'
+import Typography from '@material-ui/core/Typography'
+import AddIcon from '@material-ui/icons/Add'
+import Button from '@material-ui/core/Button'
 import { WidgetMenu, Controller } from '../index'
 
 const schema = [
@@ -13,9 +18,27 @@ const schema = [
 ]
 
 storiesOf('DashBoard', module)
-  .add('Simple', withState({ schema })(({ store }) => (
+  .add('Simple', withState({ schema, isOpenWidgetMenu: false })(({ store }) => (
     <Context>
-      <div style={{ height: '50vh' }}>
+      <div style={{ height: '70vh' }}>
+        <AppBar position="static">
+          <Toolbar>
+            <Button color="inherit" onClick={() => store.set({ isOpenWidgetMenu: !store.state.isOpenWidgetMenu })}>
+              <AddIcon />
+            </Button>
+
+            <div>
+              <Typography variant="h6" color="inherit">
+                Dashboard
+              </Typography>
+
+              <Typography color="inherit">
+                description
+              </Typography>
+            </div>
+          </Toolbar>
+        </AppBar>
+
         <Controller
           id={null}
           data={store.state.schema}
@@ -27,13 +50,10 @@ storiesOf('DashBoard', module)
         />
 
         <WidgetMenu
-          isOpenWidgetMenu
+          isOpenWidgetMenu={store.state.isOpenWidgetMenu}
           data={store.state.schema}
-          onDnDAction={(event) => {
-            console.warn('new state', event)
-            store.set({ schema: event })
-          }}
-          onClose={() => {}}
+          onDnDAction={event => store.set({ schema: event })}
+          onClose={() => store.set({ isOpenWidgetMenu: false })}
         />
         {
           // getI18N={this.getI18N}
