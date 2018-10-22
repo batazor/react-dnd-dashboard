@@ -120,7 +120,7 @@ var Wrapper = (_temp = _class = function (_PureComponent) {
   }, {
     key: 'getI18N',
     value: function getI18N(name) {
-      return this.props.getI18N(name) || name;
+      return this.props.getI18N ? this.props.getI18N(name) : name;
     }
   }, {
     key: 'render',

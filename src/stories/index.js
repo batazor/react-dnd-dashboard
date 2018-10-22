@@ -1,36 +1,24 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+// import { StateDecorator, Store } from "@sambego/storybook-state"
+import { withState } from '@dump247/storybook-state'
 import { Context } from 'react-dnd-simple'
 import { WidgetMenu, Controller } from '../index'
 
-let schema = [
+const schema = [
   {
     type: 'Grid',
-    children: [
-      {
-        type: 'LineChart',
-        initialValues: {},
-      },
-      {
-        type: 'LineChart',
-        initialValues: {},
-      },
-    ],
+    children: [],
   },
 ]
 
-function onDnDAction(event) {
-  console.warn('onDnDAction', event)
-  schema = event
-}
-
 storiesOf('DashBoard', module)
-  .add('Simple', () => (
+  .add('Simple', withState({ schema })(({ store }) => (
     <Context>
       <div style={{ height: '50vh' }}>
         <Controller
           id={null}
-          data={schema}
+          data={store.state.schema}
 
           // onCloseDialogs={pathToWidget => this.setState({ nodeId: pathToWidget })}
           // onMoveDnD={this.onMoveDnD}
@@ -40,8 +28,11 @@ storiesOf('DashBoard', module)
 
         <WidgetMenu
           isOpenWidgetMenu
-          data={schema}
-          onDnDAction={onDnDAction}
+          data={store.state.schema}
+          onDnDAction={(event) => {
+            console.warn('new state', event)
+            store.set({ schema: event })
+          }}
           onClose={() => {}}
         />
         {
@@ -52,4 +43,4 @@ storiesOf('DashBoard', module)
         }
       </div>
     </Context>
-  ))
+  )))

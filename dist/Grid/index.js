@@ -20,7 +20,9 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _reactGridLayoutFix = require('react-grid-layout-fix');
 
-var _Controller = require('./Widget/Controller');
+var _styles = require('@material-ui/core/styles');
+
+var _Controller = require('../Widget/Controller');
 
 var _Controller2 = _interopRequireDefault(_Controller);
 
@@ -56,6 +58,7 @@ var ShowcaseLayout = (_temp = _class = function (_PureComponent) {
     _this.state = {
       layout: undefined
     };
+    console.warn('GRID');
 
     _this.onLayoutChange = _this.onLayoutChange.bind(_this);
     _this.onDragStop = _this.onDragStop.bind(_this);
@@ -88,6 +91,7 @@ var ShowcaseLayout = (_temp = _class = function (_PureComponent) {
           rowHeight = _props.rowHeight,
           margin = _props.margin;
 
+      console.warn('children', children);
 
       return _react2.default.createElement(
         ResponsiveReactGridLayout,
@@ -102,7 +106,8 @@ var ShowcaseLayout = (_temp = _class = function (_PureComponent) {
             lg: 12, md: 12, sm: 12, xs: 12, xxs: 12
           },
           onLayoutChange: this.onLayoutChange
-          // I like to have it animate on mount. If you don't, delete `useCSSTransforms` (it's default `true`)
+          // I like to have it animate on mount. If you don't,
+          // delete `useCSSTransforms` (it's default `true`)
           // and set `measureBeforeMount={true}`.
           , useCSSTransforms: true,
           compactType: 'vertical',
@@ -116,6 +121,7 @@ var ShowcaseLayout = (_temp = _class = function (_PureComponent) {
           , rowHeight: rowHeight
         },
         children.map(function (item, index) {
+          console.warn('Item', item);
           return _react2.default.createElement(
             'div',
             {
@@ -148,4 +154,4 @@ var ShowcaseLayout = (_temp = _class = function (_PureComponent) {
   rowHeight: 95, // eslint-disable-line
   margin: [16, 20] // eslint-disable-line
 }, _temp);
-exports.default = ShowcaseLayout;
+exports.default = (0, _styles.withStyles)(styles)(ShowcaseLayout);

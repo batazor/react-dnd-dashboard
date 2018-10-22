@@ -16,13 +16,13 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Widget = require('Containers/Widget');
-
-var _Widget2 = _interopRequireDefault(_Widget);
-
 var _Wrapper = require('../Wrapper');
 
 var _Wrapper2 = _interopRequireDefault(_Wrapper);
+
+var _Switch = require('../Switch');
+
+var _Switch2 = _interopRequireDefault(_Switch);
 
 var _myDropContainer = require('./myDropContainer');
 
@@ -37,6 +37,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// import Widget from 'Containers/Widget'
+
 
 var Controller = function (_PureComponent) {
   _inherits(Controller, _PureComponent);
@@ -50,7 +52,10 @@ var Controller = function (_PureComponent) {
   _createClass(Controller, [{
     key: 'render',
     value: function render() {
-      return Array.isArray(this.props.data) ? Controller.getContainer(this.props) : _react2.default.createElement(_Widget2.default, this.props);
+      return Array.isArray(this.props.data) ? Controller.getContainer(this.props) : _react2.default.createElement(_Switch2.default, _extends({
+        statusDataSource: {},
+        packets: {}
+      }, this.props));
     }
   }], [{
     key: 'getContainer',
@@ -61,6 +66,8 @@ var Controller = function (_PureComponent) {
 
       return data.map(function (item, index) {
         var pathById = '' + (id === null ? '' : id + '.') + index;
+
+        console.warn('getContainer', id);
 
         return _react2.default.createElement(
           _Wrapper2.default,

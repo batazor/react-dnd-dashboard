@@ -16,7 +16,7 @@ import Tooltip from '@material-ui/core/Tooltip'
 import { withStyles } from '@material-ui/core/styles'
 import styles from './styles'
 import widgetList from './widgetList'
-import { onDnD } from './utils'
+import { objectListToArrayList, onDnD } from './utils'
 
 class WidgetMenu extends PureComponent {
   static propTypes = {
@@ -55,7 +55,7 @@ class WidgetMenu extends PureComponent {
 
   onDnDAdd(event) {
     const newState = onDnD(this.props.data, event)
-    return this.props.onDnDAction(newState)
+    return this.props.onDnDAction(objectListToArrayList(newState))
   }
 
   myDragComponent(item, index, options, /* onAddWidgetAction */) {
