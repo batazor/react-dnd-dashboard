@@ -50,7 +50,7 @@
     "react-grid-layout-fix": "^0.16.7"
   },
   "peerDependencies": {
-    "react": "^16.0.0"
+    "react": "^16.8.6"
   },
   "dependencies": {
     "@material-ui/core": "^3.9.3",
