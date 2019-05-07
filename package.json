@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/batazor/react-dnd-dashboard#readme",
   "devDependencies": {
-    "@dump247/storybook-state": "^1.5.0",
+    "@dump247/storybook-state": "^1.5.2",
     "@material-ui/icons": "^3.0.1",
     "@storybook/cli": "^3.4.11",
     "@storybook/react": "^3.4.11",
