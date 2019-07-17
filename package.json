@@ -30,7 +30,7 @@
   "devDependencies": {
     "@dump247/storybook-state": "^1.6.1",
     "@material-ui/icons": "^4.2.1",
-    "@storybook/cli": "^3.4.12",
+    "@storybook/cli": "^5.1.9",
     "@storybook/react": "^3.4.12",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^10.0.2",
