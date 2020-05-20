@@ -55,7 +55,7 @@
   "dependencies": {
     "@material-ui/core": "^4.9.14",
     "lodash": "^4.17.15",
-    "moment": "^2.25.3",
+    "moment": "^2.26.0",
     "react-dnd": "^5.0.0",
     "react-dnd-html5-backend": "^5.0.1",
     "react-dom": "^16.13.1",
