@@ -45,12 +45,12 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.24.0",
     "prop-types": "^15.7.2",
-    "react": "^16.14.0",
+    "react": "^17.0.2",
     "react-dnd-simple": "^1.0.7",
     "react-grid-layout-fix": "^0.16.7"
   },
   "peerDependencies": {
-    "react": "^16.14.0"
+    "react": "^17.0.2"
   },
   "dependencies": {
     "@material-ui/core": "^4.12.1",
@@ -58,7 +58,7 @@
     "moment": "^2.29.1",
     "react-dnd": "^5.0.0",
     "react-dnd-html5-backend": "^5.0.1",
-    "react-dom": "^16.14.0",
+    "react-dom": "^17.0.2",
     "recharts": "^1.8.5"
   }
 }
