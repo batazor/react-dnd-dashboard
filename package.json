@@ -44,7 +44,7 @@
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.27.1",
-    "prop-types": "^15.7.2",
+    "prop-types": "^15.8.0",
     "react": "^16.14.0",
     "react-dnd-simple": "^1.0.7",
     "react-grid-layout-fix": "^0.16.7"
