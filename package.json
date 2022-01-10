@@ -46,7 +46,7 @@
     "eslint-plugin-react": "^7.28.0",
     "prop-types": "^15.8.1",
     "react": "^16.14.0",
-    "react-dnd-simple": "^1.0.7",
+    "react-dnd-simple": "^7.0.2",
     "react-grid-layout-fix": "^0.16.7"
   },
   "peerDependencies": {
