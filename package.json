@@ -29,7 +29,7 @@
   "homepage": "https://github.com/batazor/react-dnd-dashboard#readme",
   "devDependencies": {
     "@dump247/storybook-state": "^1.6.1",
-    "@material-ui/icons": "^4.11.2",
+    "@mui/icons-material": "^5.0.0",
     "@storybook/cli": "^5.3.22",
     "@storybook/react": "^6.5.16",
     "babel-cli": "^6.26.0",
