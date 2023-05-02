@@ -33,7 +33,7 @@
     "@storybook/cli": "^7.0.7",
     "@storybook/react": "^6.5.16",
     "babel-cli": "^6.26.0",
-    "@babel/eslint-parser": "^7.21.3",
+    "@babel/eslint-parser": "^7.21.8",
     "babel-plugin-transform-decorators-legacy": "^1.3.5",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
